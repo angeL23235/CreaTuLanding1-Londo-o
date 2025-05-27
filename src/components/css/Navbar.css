@@ -1,0 +1,15 @@
+.navbarItems{
+    color: white;
+    display: flex;
+    width: 97%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color:#A020F0;
+}
+
+.navbarItems ul{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
