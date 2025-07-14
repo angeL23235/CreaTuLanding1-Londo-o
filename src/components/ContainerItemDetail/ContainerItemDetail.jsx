@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { obtenerUnProducto } from "../../fireBase/db"; 
 import ItemDetail from "./ItemDetail";
 
 function ContainerItemDetail() {
@@ -7,13 +8,11 @@ function ContainerItemDetail() {
   const { itemId } = useParams();
 
   useEffect(() => {
-    fetch("https://682c3697d29df7a95be60521.mockapi.io/products/products")
-      .then(res => res.json())
-      .then(data => {
-        const producto = data.find(p => p.id.toString() === itemId);
-        setProd(producto);
-      })
-      .catch(err => console.error("Error cargando producto:", err));
+    const cargar = async () => {
+      const data = await obtenerUnProducto(itemId);
+      setProd(data);
+    };
+    cargar();
   }, [itemId]);
 
   if (!prod) {
