@@ -1,4 +1,4 @@
-import Item from "./Item.jsx";
+import Item from "./item.jsx";
 
 function ItemList({ items }) {
   return (
